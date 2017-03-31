@@ -8,7 +8,7 @@ public class SnuTekst {
 System.out.print("Enter a string: ");
 String tekst = input.nextLine();
 System.out.print("The reverse of " + tekst + " is as follows: ");
-baklengs(tekst);
+baklengs(tekst, tekst.length() -1);
 System.out.print("     Enter the character to count: ");
 	char x = input.next().charAt(0);
 	System.out.print("The character " + x + " appears " + count(tekst, x) + " time(s).");
@@ -27,11 +27,14 @@ System.out.print("     Enter the character to count: ");
  }
 
 
-public static void baklengs (String tekst){
-	 if ( tekst.length() !=0){
-		 System.out.print(tekst.charAt(tekst.length() - 1));
-	 baklengs(tekst.substring(0, tekst.length() - 1));
+public static void baklengs (String tekst, int siste){
+	 if ( siste == 0){
+		 System.out.print(tekst.charAt(siste));
+	 return;
+	 }
+	 System.out.print(tekst.charAt(siste));
+	 baklengs(tekst, --siste);
 	 }
 	 
- }
+ 
  }
